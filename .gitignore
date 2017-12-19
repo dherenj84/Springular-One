@@ -1,5 +1,5 @@
-
-dashboard/.classpath
-dashboard/.project
-dashboard/.settings/*
-dashboard/target/*
+.classpath
+.project
+.settings/*
+target/*
+bin/*
