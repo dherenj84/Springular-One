@@ -14,3 +14,6 @@ A pretty straight-forward but extremely handy seed starter project for Spring MV
 
 What I have tried to do here is to collate a lot of best practises and some sensible defaults for any typical Java based web application. As with any other project and developer, I have done extensive Googling and taken multiple references from various forumns to put it all together. Happy developing!!
 
+A note when you hit the login screen upon deploying,
+Use any username and password as password when you hit the login screen. The same can be customized in /src/main/java/com/mycomp/dashboard/security/CustomUserDetailsService.java
+
