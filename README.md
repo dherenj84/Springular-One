@@ -1,5 +1,5 @@
 # Springular-One
-Spring 4 + Angular JS 1.6.X seed starter. One in Springular-One denotes the use of Angular 1.x as my preferred UI framework(as I am still coming to terms with Angular IO :D)
+Spring 4.x + Angular JS 1.6.X seed starter. One in Springular-One denotes the use of Angular 1.x as my preferred UI framework(as I am still coming to terms with Angular IO :D)
 
 A pretty straight-forward but extremely handy seed starter project for Spring MVC + Angular based web applications using Java 8 and developed on Eclipse. The project is a result of the requirements coming out of a recent project I was authoring. You'll get the following features out of the box,
 - Spring 4 MVC
