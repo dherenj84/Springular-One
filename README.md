@@ -11,6 +11,7 @@ A pretty straight-forward but extremely handy seed starter project for Spring MV
 - Email Integration with Freemarker templates.
 - Logging using Log4j.
 - Responsive UI using Bootstrap 4.
+- A stab at a homegrown Angular JS grid component and some sample spinner and page loader directives. 
 
 A note when you hit the login screen upon deploying,
 Use any username and password as password when you hit the login screen. The same can be customized in /src/main/java/com/mycomp/dashboard/security/CustomUserDetailsService.java
