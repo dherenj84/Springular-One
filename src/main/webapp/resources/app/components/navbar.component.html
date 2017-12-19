@@ -1,0 +1,37 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+	<span class="navbar-brand mb-0">MyComp</span>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent" aria-expanded="false"
+		aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto" ng-show="$ctrl.user.enabled">
+			<li class="nav-item active"><a class="nav-link" href="#!home"><i
+					class="fa fa-home fa-lg" aria-hidden="true"></i> <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<div class="dropdown">
+					<a class="nav-link dropdown-toggle" id="dropdownMenuButton"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Notifications
+						<span class="badge badge-pill badge-primary">4</span>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#">Notification 1</a> <a
+							class="dropdown-item" href="#">Notification 2</a> <a
+							class="dropdown-item" href="#">Notification 3</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<span class="navbar-text" ng-show="$ctrl.user.enabled"> Welcome
+			{{$ctrl.user.username | uppercase}} <span ng-hide="true">[<span
+				ng-repeat="authority in $ctrl.user.authorities">{{authority.authority}}<span
+					ng-if="!$last">, </span></span>]
+		</span>
+		</span> <span class="navbar-text"> <a class="nav-link" href="logout">Logout</a>
+		</span>
+	</div>
+</nav>

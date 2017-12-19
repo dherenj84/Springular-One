@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<context:component-scan base-package="com.mycomp.dashboard" />
+
+	<!-- Uncomment following while setting up a data source -->
+	<!--
+	<bean id="myEmf"
+	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	<property name="dataSource" ref="dataSource" />
+	<property name="packagesToScan" value="com.mycomp.dashboard.entity" />
+	<property name="mappingResources">
+			<list>
+				<value>META-INF/db-orm.xml</value>
+			</list>
+	</property>
+	<property name="jpaVendorAdapter">
+		<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+	</property>
+	<property name="jpaProperties">
+		<props>
+			<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+			<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+		</props>
+	</property>
+	</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<property name="url"
+			value="jdbc:sqlserver://${db.server};databaseName=${db.schema}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean> 
+	-->
+
+	<!-- Use the following data source instead of the above if using JNDI -->
+	<!--
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/MyCompDB" />
+	</bean> 
+	-->
+
+	<!-- Uncomment the transaction manager too while uncommenting the data source above -->
+	<!--
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="myEmf" />
+	</bean>
+	<tx:annotation-driven />
+	<bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	<jpa:repositories base-package="com.mycomp.dashboard.repository"
+		entity-manager-factory-ref="myEmf" transaction-manager-ref="transactionManager"
+		base-class="com.mycomp.dashboard.repository.BaseRepositoryImpl" />
+	-->
+	
+	<context:property-placeholder
+		location="classpath:properties/application-default.properties, classpath:properties/application-${spring.profiles.active}.properties"
+		ignore-unresolvable="true" />
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host}" />
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+		<property name="port" value="587" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="fmConfiguration"
+		class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+		<property name="templateLoaderPath" value="/templates/"></property>
+	</bean>
+</beans>
