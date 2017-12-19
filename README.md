@@ -6,6 +6,7 @@ A pretty straight-forward but extremely handy seed starter project for Spring MV
 - Angular 1.6.X
 - Spring Security enabled with In-Memory, LDAP, Custom authentication supported.
 - Spring Data JPA enabled with both Spring repository and Native queries support out of the box.
+- Spring JUnit Test cases.
 - Load of dymanic properites file based on server environment.
 - Email Integration with Freemarker templates.
 - Logging using Log4j.
