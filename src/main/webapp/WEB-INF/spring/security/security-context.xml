@@ -20,7 +20,9 @@
 	</http>
 
 	<authentication-manager id="dbAuth">
-		<authentication-provider user-service-ref="customUserDetailsService" />
+		<authentication-provider user-service-ref="customUserDetailsService">
+			<password-encoder ref="noOp"></password-encoder>
+		</authentication-provider>
 	</authentication-manager>
 
 	<!-- <authentication-manager id="ldapAuth"> <authentication-provider ref="ldapAuthProvider" 
@@ -31,8 +33,14 @@
 			<user-service>
 				<user name="user" password="password" authorities="ROLE_USER" />
 			</user-service>
+			<password-encoder ref="noOp"></password-encoder>
 		</authentication-provider>
+		
 	</authentication-manager>
+	
+	
+	<!-- Adding for plain text password to test with Spring Security 5 -->
+	<beans:bean id="noOp" class="org.springframework.security.crypto.password.NoOpPasswordEncoder" />
 
 	<!-- <beans:bean id="ldapContextMapper" class="com.mycomp.dashboard.security.LdapUserDetailsMapper" 
 		/> -->
